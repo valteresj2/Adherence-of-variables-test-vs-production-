@@ -1,0 +1,11 @@
+setwd("your directory of files")
+source("aderencia.r")
+dados<-read.csv("bank-full.csv",sep=';',h=T)
+
+ind<-sample(1:nrow(dados),nrow(dados)*0.8,replace=F)
+
+dados1=dados[ind,]
+dados2=dados[-ind,]
+
+# The ideal is that the dados1 be of test and dados2 the of production. 
+bivariada(dados1,dados2,direc="C:/Resultados_bivariadas/")
